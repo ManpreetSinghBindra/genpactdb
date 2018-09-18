@@ -4,18 +4,20 @@
 		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
 	<session-factory>
-		<property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
-		<property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:XE</property>
+		<property name="hibernate.connection.driver_class">org.apache.derby.jdbc.ClientDriver</property>
+		<property name="hibernate.connection.url">jdbc:derby://localhost:1527/C:/genpactdb;create=true</property>
 		<property name="hibernate.connection.username">system</property>
 		<property name="hibernate.connection.password">system</property>
         
-        <!-- Generate SQL - Use Oracle Functions -->
-		<property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+        <!-- Generate SQL - Use Derby Functions -->
+		<property name="hibernate.dialect">org.hibernate.dialect.DerbyDialect</property>
 
 		<property name="show_sql">true</property>
 		<property name="format_sql">true</property>
 
 		<property name="hbm2ddl.auto">create</property>
-				
+		
+		<mapping resource="com/domain/Product.hbm.xml"/>
+		
 	</session-factory>
 </hibernate-configuration>
