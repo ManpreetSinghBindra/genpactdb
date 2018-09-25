@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="derbyDataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+		scope="singleton" lazy-init="false">
+
+		<property name="driverClassName"
+			value="org.apache.derby.jdbc.ClientDriver" />
+
+		<property name="url"
+			value="jdbc:derby://localhost:1527/C:/genpactdb;create=true" />
+
+		<property name="username" value="system" />
+
+		<property name="password" value="system" />
+	</bean>
+
+	<bean id="derbySessionFactory" 
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"
+		scope="singleton"
+		lazy-init="false">
+		
+		<property name="dataSource" ref="derbyDataSource" />
+		
+		<property name="packagesToScan">
+			<array>
+				<value>com.rageframeworks.domain</value>
+			</array>
+		</property>
+		
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.DerbyDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">create</prop>
+			</props>
+		</property>
+		
+	</bean>
+
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
