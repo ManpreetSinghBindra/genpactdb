@@ -1,11 +1,9 @@
-hibernateProperties.setProperty("hibernate.cache.use_second_level_cache", 
-				"true");
-		
-		hibernateProperties.setProperty("hibernate.cache.region.factory_class",
-				"org.hibernate.cache.ehcache.EhCacheRegionFactory");
-		
-		hibernateProperties.setProperty(
-				"hibernate.cache.provider_configuration_file_resource_path", 
-				"ehcache.xml");
-		
-		hibernateProperties.setProperty("hibernate.cache.use_query_cache", "true");
+spring.datasource.driver-class-name=org.apache.derby.jdbc.ClientDriver
+spring.datasource.username=system
+spring.datasource.password=system
+spring.datasource.url=jdbc:derby://localhost:1527/C:/genpactdb;create=true
+
+spring.jpa.hibernate.ddl-auto=create-drop
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.DerbyDialect
+spring.jpa.properties.hibernate.format_sql=org.hibernate.dialect.true
